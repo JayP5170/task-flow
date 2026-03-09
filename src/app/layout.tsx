@@ -17,10 +17,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "TaskFlow | Premium Project Management SaaS",
-    template: "%s | TaskFlow"
+    template: "%s | TaskFlow",
   },
-  description: "A state-of-the-art SaaS platform for managing projects and team tasks with elegance and efficiency. Experience productivity at its peak with our premium design and seamless collaboration tools.",
-  keywords: ["project management", "task management", "saas", "team collaboration", "productivity", "workflow management", "team tasks", "project tracking"],
+  description:
+    "A state-of-the-art SaaS platform for managing projects and team tasks with elegance and efficiency. Experience productivity at its peak with our premium design and seamless collaboration tools.",
+  keywords: [
+    "project management",
+    "task management",
+    "saas",
+    "team collaboration",
+    "productivity",
+    "workflow management",
+    "team tasks",
+    "project tracking",
+  ],
   authors: [{ name: "TaskFlow Team" }],
   creator: "TaskFlow",
   publisher: "TaskFlow",
@@ -39,13 +49,18 @@ export const metadata: Metadata = {
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  metadataBase: new URL("https://task-flow-delta-inky.vercel.app"),
+  alternates: {
+    canonical: "https://task-flow-delta-inky.vercel.app",
+  },
   openGraph: {
     title: "TaskFlow | Premium Project Management SaaS",
-    description: "Manage your projects with elegance and efficiency. Experience productivity at its peak.",
+    description:
+      "Manage your projects with elegance and efficiency. Experience productivity at its peak.",
     type: "website",
     siteName: "TaskFlow",
     locale: "en_US",
-    url: "https://taskflow-saas.vercel.app", // User can change this when they have a domain
+    url: "https://task-flow-delta-inky.vercel.app",
   },
   twitter: {
     card: "summary_large_image",
@@ -58,7 +73,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    google: "ioTmbHPTcdsVMEzpVTy4coBC5xm4IYlx_sPGQWd3TkI"
+    google: "ioTmbHPTcdsVMEzpVTy4coBC5xm4IYlx_sPGQWd3TkI",
   },
 };
 
@@ -73,21 +88,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <AuthProvider>
-          {children}
-        </AuthProvider>
-        <Toaster 
-          position="top-center" 
-          expand={false} 
-          richColors 
+        <AuthProvider>{children}</AuthProvider>
+        <Toaster
+          position="top-center"
+          expand={false}
+          richColors
           closeButton
           toastOptions={{
             style: {
-              borderRadius: '24px',
-              padding: '16px',
-              border: '1px solid rgba(20, 184, 166, 0.1)',
+              borderRadius: "24px",
+              padding: "16px",
+              border: "1px solid rgba(20, 184, 166, 0.1)",
             },
-            className: 'font-sans font-medium',
+            className: "font-sans font-medium",
           }}
         />
       </body>
