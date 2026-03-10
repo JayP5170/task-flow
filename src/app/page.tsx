@@ -11,12 +11,17 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { createSupabaseServer } from '@/lib/supabase/server';
+import { redirect } from 'next/navigation';
 
 export default async function IndexPage() {
   const supabase = await createSupabaseServer();
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  if (user) {
+    redirect('/dashboard');
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans selection:bg-teal-200">
