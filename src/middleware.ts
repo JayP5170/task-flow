@@ -48,15 +48,7 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
 
-  // 1. Root Page (/) Logic
-  if (pathname === '/') {
-    const redirectUrl = new URL(user ? '/dashboard' : '/login', request.url);
-    const redirectResponse = NextResponse.redirect(redirectUrl);
-    response.cookies.getAll().forEach(cookie => {
-      redirectResponse.cookies.set(cookie.name, cookie.value);
-    });
-    return redirectResponse;
-  }
+  // 1. Root Page (/) Logic removed to serve public landing page
 
   // 2. Auth Page Restriction (login/register)
   const isAuthPage = pathname.startsWith('/login') || pathname.startsWith('/register');
