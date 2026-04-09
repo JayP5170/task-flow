@@ -15,8 +15,8 @@ import { useAuthContext } from "@/components/providers/AuthProvider";
 
 interface Profile {
   id: string;
-  username: string;
-  email: string;
+  username: string | null;
+  email: string | null;
   role: string;
 }
 
@@ -82,8 +82,8 @@ export default function CreateProjectPage() {
   };
 
   const filteredEmployees = employees.filter(emp => 
-    emp.username.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    emp.email.toLowerCase().includes(searchTerm.toLowerCase())
+    (emp.username?.toLowerCase() || "").includes(searchTerm.toLowerCase()) || 
+    (emp.email?.toLowerCase() || "").includes(searchTerm.toLowerCase())
   );
 
   const onSubmit = async (data: ProjectValues) => {
